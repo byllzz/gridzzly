@@ -1,9 +1,8 @@
 // components/PlacedItemsOverlay.jsx
 
-// Generate a consistent pastel color based on item id
 const getItemColor = id => {
-  const hue = (id * 137) % 360; // golden angle gives well-distributed hues
-  return `hsl(${hue}, 70%, 80%)`; // light pastel (70% saturation, 80% lightness)
+  const hue = (id * 137) % 360;
+  return `hsl(${hue}, 70%, 80%)`;
 };
 
 export const PlacedItemsOverlay = ({ items, onDelete }) => {
@@ -19,7 +18,7 @@ export const PlacedItemsOverlay = ({ items, onDelete }) => {
               gridColumn: `${item.cStart} / ${item.cEnd}`,
               backgroundColor: bgColor,
             }}
-            className="border-2 border-white text-gray-900 px-1 text-[16px] font-primary relative shadow-md flex items-start justify-between group overflow-hidden"
+            className="border-2 border-white text-gray-900 px-1 text-[16px] font-primary relative shadow-md flex items-start justify-between group overflow-hidden pointer-events-auto"
           >
             <span>.div{item.id}</span>
             <button
@@ -27,7 +26,7 @@ export const PlacedItemsOverlay = ({ items, onDelete }) => {
                 e.stopPropagation();
                 onDelete(item.id);
               }}
-              className="text-white font-extrabold text-[22px] relative bottom-1.5 cursor-pointer "
+              className="text-white font-extrabold text-[22px] relative bottom-1.5 cursor-pointer"
             >
               ×
             </button>

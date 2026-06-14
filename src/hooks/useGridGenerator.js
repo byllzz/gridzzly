@@ -109,18 +109,30 @@ export const useGridGenerator = () => {
 
   const finishDrawing = () => {
     if (!isDrawing || highlightedCells.length === 0) return;
+
+    // 1. Instantly turn off the drawing flag and wipe selection arrays
+    // to force the background cells to lose their purple color right away
+    setIsDrawing(false);
+    setStartCell(null);
+
     let rStart = Infinity,
       rEnd = -Infinity;
     let cStart = Infinity,
       cEnd = -Infinity;
+
     highlightedCells.forEach(cell => {
       if (cell.row < rStart) rStart = cell.row;
       if (cell.row > rEnd) rEnd = cell.row;
       if (cell.col < cStart) cStart = cell.col;
       if (cell.col > cEnd) cEnd = cell.col;
     });
-    setItems([
-      ...items,
+
+    // Clear highlights explicitly
+    setHighlightedCells([]);
+
+    // 2. Add the item using a functional state update to prevent batching race conditions
+    setItems(prevItems => [
+      ...prevItems,
       {
         id: itemCounter,
         rStart,
@@ -129,12 +141,9 @@ export const useGridGenerator = () => {
         cEnd: cEnd + 1,
       },
     ]);
-    setItemCounter(itemCounter + 1);
-    setHighlightedCells([]);
-    setStartCell(null);
-    setIsDrawing(false);
-  };
 
+    setItemCounter(prev => prev + 1);
+  };
   const deleteItem = id => {
     setItems(items.filter(item => item.id !== id));
   };
