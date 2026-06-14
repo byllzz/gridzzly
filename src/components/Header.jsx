@@ -3,7 +3,7 @@ import Logo from './Logo';
 // components/Header.jsx
 export default function Header() {
   return (
-    <header className="flex flex-col items-center text-center pt-11">
+    <header className="flex flex-col items-center text-center pt-14">
       <div className="flex items-center gap-2 font-secondary">
         <Logo />
         <h1 className="text-5xl font-bold italic">

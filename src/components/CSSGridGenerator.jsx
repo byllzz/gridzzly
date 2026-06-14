@@ -23,7 +23,7 @@ export default function CSSGridGenerator() {
     setRowSizes,
     items,
     highlightedCells,
-    isDrawing, // <-- 1. Extract isDrawing from your hook
+    isDrawing,
     cssCode,
     htmlCode,
     startDrawing,
@@ -38,7 +38,7 @@ export default function CSSGridGenerator() {
   const [isCodeModalOpen, setIsCodeModalOpen] = useState(false);
 
   return (
-    <div className="h-full w-full mt-12 text-zinc-200 py-2 selection:bg-purple-500/30">
+    <div className="flex-1 w-full relative  text-zinc-200 py-2 selection:bg-purple-500/30">
       <div className="flex flex-col lg:flex-row gap-5 px-7 w-full justify-between items-start">
         <div className="flex flex-col flex-1 w-full gap-4 relative right-5">
           <VisualGrid
@@ -52,7 +52,7 @@ export default function CSSGridGenerator() {
             rowGap={rowGap}
             items={items}
             highlightedCells={highlightedCells}
-            isDrawing={isDrawing} // <-- 2. Pass it down to the grid component here!
+            isDrawing={isDrawing}
             startDrawing={startDrawing}
             updateDrawing={updateDrawing}
             finishDrawing={finishDrawing}
@@ -60,7 +60,6 @@ export default function CSSGridGenerator() {
           />
         </div>
 
-        {/* ... rest of your code panel components stay exactly the same ... */}
         <div className="w-full lg:w-96 flex flex-col items-start gap-3 relative right-2">
           <GridSetupPanel
             numCols={numCols}
