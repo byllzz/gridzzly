@@ -139,11 +139,16 @@ export const useGridGenerator = () => {
     setItems(items.filter(item => item.id !== id));
   };
 
+  // hooks/useGridGenerator.js (excerpt)
   const resetGrid = () => {
     setItems([]);
     setItemCounter(1);
-    setColSizes(Array(numCols).fill('1fr'));
-    setRowSizes(Array(numRows).fill('1fr'));
+    setNumCols(4);
+    setNumRows(3);
+    setColGap(0);
+    setRowGap(0);
+    setColSizes(Array(4).fill('1fr'));
+    setRowSizes(Array(3).fill('1fr'));
   };
 
   const applyTemplate = tpl => {
