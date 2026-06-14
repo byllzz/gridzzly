@@ -1,10 +1,9 @@
 // CSSGridGenerator.jsx
-import React from 'react';
-import { useGridGenerator } from './hooks/useGridGenerator';
-import { GridSetupPanel } from './components/GridSetupPanel';
-import { VisualGrid } from './components/VisualGrid';
-import { TemplatePresets } from './components/TemplatePresets';
-import { CodePanel } from './components/CodePanel';
+import { useGridGenerator } from '../hooks/useGridGenerator';
+import { GridSetupPanel } from './GridSetupPanel';
+import { VisualGrid } from './VisualGrid';
+import { TemplatePresets } from './TemplatePresets';
+import { CodePanel } from './CodePanel';
 
 export default function CSSGridGenerator() {
   const {

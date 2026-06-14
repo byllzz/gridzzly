@@ -1,3 +1,8 @@
+import CSSGridGenerator from './components/CSSGridGenerator';
 export default function App() {
-  return <div>App</div>;
+  return (
+    <div>
+      <CSSGridGenerator />
+    </div>
+  );
 }
