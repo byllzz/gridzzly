@@ -26,7 +26,7 @@ export const ColumnTrackInputs = ({ colSizes, setColSizes, colGap }) => (
 
 export const RowTrackInputs = ({ rowSizes, setRowSizes, rowGap }) => (
   <div
-    className="absolute -left-24 top-0 bottom-0 w-20 grid"
+    className="absolute -left-21 top-0 bottom-0 w-20 grid"
     style={{
       gridTemplateRows: rowSizes.join(' '),
       rowGap: `${rowGap}px`,

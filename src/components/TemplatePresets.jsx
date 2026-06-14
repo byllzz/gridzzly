@@ -1,5 +1,9 @@
 // components/TemplatePresets.jsx
+import React, { useRef, useState, useEffect } from 'react';
 import { standardPatterns, otherPatterns } from '../data/templates';
+
+// Merge all templates into one array
+const allTemplates = [...otherPatterns, ...standardPatterns];
 
 // Helper to compute scaling factor to fit preview into 40px box
 const getScale = (colSizes, rowSizes) => {
@@ -74,51 +78,129 @@ const MiniGridPreview = ({ cols, rows, colSizes, rowSizes, items }) => {
   );
 };
 
-const TemplateGroup = ({ title, templates, onApplyTemplate }) => (
-  <div className="flex flex-col gap-2">
-    <span className="text-xs font-semibold text-zinc-400 uppercase tracking-wider">{title}</span>
-    <div className="flex flex-wrap gap-2">
-      {templates.map((tpl, idx) => (
-        <button
-          key={`${title}-${idx}`}
-          onClick={() => onApplyTemplate(tpl)}
-          className="group relative bg-zinc-800 hover:bg-zinc-700 border border-zinc-700 rounded p-1 transition-all duration-200 flex flex-col items-center gap-0.5 w-[56px]"
-          title={tpl.name}
-        >
-          <MiniGridPreview
-            cols={tpl.cols}
-            rows={tpl.rows}
-            colSizes={tpl.colSizes}
-            rowSizes={tpl.rowSizes}
-            items={tpl.items}
-          />
-          <span className="text-[8px] text-zinc-400 group-hover:text-zinc-200 truncate w-full text-center leading-tight">
-            {tpl.name.length > 10 ? tpl.name.slice(0, 8) + '…' : tpl.name}
-          </span>
-        </button>
-      ))}
-    </div>
-  </div>
-);
-
 export const TemplatePresets = ({ onApplyTemplate, onReset }) => {
+  const sliderRef = useRef(null);
+  const [isDown, setIsDown] = useState(false);
+  const [startX, setStartX] = useState(0);
+  const [scrollLeft, setScrollLeft] = useState(0);
+
+  // Handle single button clicks to shift layout by increments
+  const scroll = direction => {
+    if (sliderRef.current) {
+      const scrollAmount = 120; // Approximately two items worth of distance
+      sliderRef.current.scrollBy({
+        left: direction === 'left' ? -scrollAmount : scrollAmount,
+        behavior: 'smooth',
+      });
+    }
+  };
+
+  // Drag-to-scroll implementation
+  const handleMouseDown = e => {
+    setIsDown(true);
+    setStartX(e.pageX - sliderRef.current.offsetLeft);
+    setScrollLeft(sliderRef.current.scrollLeft);
+  };
+
+  const handleMouseLeave = () => {
+    setIsDown(false);
+  };
+
+  const handleMouseUp = () => {
+    setIsDown(false);
+  };
+
+  const handleMouseMove = e => {
+    if (!isDown) return;
+    e.preventDefault();
+    const x = e.pageX - sliderRef.current.offsetLeft;
+    const walk = (x - startX) * 1.5; // Scroll speed multiplier
+    sliderRef.current.scrollLeft = scrollLeft - walk;
+  };
+
   return (
-    <div className="flex flex-col gap-4">
-      <div className="flex flex-col gap-3">
-        <TemplateGroup
-          title="Standard Patterns"
-          templates={standardPatterns}
-          onApplyTemplate={onApplyTemplate}
-        />
-        <TemplateGroup
-          title="Other Layouts"
-          templates={otherPatterns}
-          onApplyTemplate={onApplyTemplate}
-        />
+    <div className="flex flex-col gap-4 select-none w-full">
+      {/* Top Header Block with Arrows */}
+      <div className="flex items-center justify-between">
+        <span className="text-xs font-semibold text-zinc-400 uppercase tracking-wider">
+          Grid Patterns
+        </span>
+        <div className="flex gap-1">
+          <button
+            onClick={() => scroll('left')}
+            className="p-1 rounded bg-zinc-800 hover:bg-zinc-700 text-zinc-400 hover:text-zinc-200 transition border border-zinc-700"
+            aria-label="Scroll Left"
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              className="h-4 w-4"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth={2}
+                d="M15 19l-7-7 7-7"
+              />
+            </svg>
+          </button>
+          <button
+            onClick={() => scroll('right')}
+            className="p-1 rounded bg-zinc-800 hover:bg-zinc-700 text-zinc-400 hover:text-zinc-200 transition border border-zinc-700"
+            aria-label="Scroll Right"
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              className="h-4 w-4"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+            >
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+            </svg>
+          </button>
+        </div>
       </div>
+
+      {/* Horizontal Slider Segment */}
+      <div
+        ref={sliderRef}
+        onMouseDown={handleMouseDown}
+        onMouseLeave={handleMouseLeave}
+        onMouseUp={handleMouseUp}
+        onMouseMove={handleMouseMove}
+        className={`flex gap-3 overflow-x-auto pb-2 scrollbar-none snap-x ${
+          isDown ? 'cursor-grabbing' : 'cursor-grab'
+        }`}
+        style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}
+      >
+        {allTemplates.map((tpl, idx) => (
+          <button
+            key={`template-${idx}`}
+            onClick={() => !isDown && onApplyTemplate(tpl)}
+            className="group relative flex flex-col items-center gap-1 w-[56px] flex-shrink-0 snap-start"
+            title={tpl.name}
+          >
+            <MiniGridPreview
+              cols={tpl.cols}
+              rows={tpl.rows}
+              colSizes={tpl.colSizes}
+              rowSizes={tpl.rowSizes}
+              items={tpl.items}
+            />
+            <span className="text-[8px] text-zinc-400 group-hover:text-zinc-200 truncate w-full text-center leading-tight">
+              {tpl.name.length > 10 ? tpl.name.slice(0, 8) + '…' : tpl.name}
+            </span>
+          </button>
+        ))}
+      </div>
+
+      {/* Reset Action Trigger */}
       <button
         onClick={onReset}
-        className="border border-purple-500/50 hover:bg-purple-500/10 text-purple-400 px-4 py-2 text-sm font-semibold rounded transition self-start"
+        className="border rounded-full border-purple-500/50 hover:bg-purple-500 hover:text-white text-purple-400 px-4 py-2 text-sm font-semibold  transition self-start"
       >
         Reset Grid
       </button>

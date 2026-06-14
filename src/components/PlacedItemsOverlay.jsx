@@ -1,5 +1,4 @@
 // components/PlacedItemsOverlay.jsx
-import React from 'react';
 
 // Generate a consistent pastel color based on item id
 const getItemColor = id => {

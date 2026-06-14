@@ -3,14 +3,14 @@ import { useState, useEffect } from 'react';
 
 export const useGridGenerator = () => {
   // Grid Dimensions & Gaps
-  const [numCols, setNumCols] = useState(4);
-  const [numRows, setNumRows] = useState(3);
+  const [numCols, setNumCols] = useState(5);
+  const [numRows, setNumRows] = useState(5);
   const [colGap, setColGap] = useState(0);
   const [rowGap, setRowGap] = useState(0);
 
   // Track Sizing (e.g., ['1fr', '1fr', ...])
-  const [colSizes, setColSizes] = useState(Array(4).fill('1fr'));
-  const [rowSizes, setRowSizes] = useState(Array(3).fill('1fr'));
+  const [colSizes, setColSizes] = useState(Array(5).fill('1fr'));
+  const [rowSizes, setRowSizes] = useState(Array(5).fill('1fr'));
 
   // Placed Grid Items: { id, rStart, cStart, rEnd, cEnd }
   const [items, setItems] = useState([]);
@@ -143,8 +143,8 @@ export const useGridGenerator = () => {
   const resetGrid = () => {
     setItems([]);
     setItemCounter(1);
-    setNumCols(4);
-    setNumRows(3);
+    setNumCols(5);
+    setNumRows(5);
     setColGap(0);
     setRowGap(0);
     setColSizes(Array(4).fill('1fr'));

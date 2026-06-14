@@ -1,7 +1,7 @@
 // components/VisualGrid.jsx
-import React, { useEffect } from 'react';
 import { ColumnTrackInputs, RowTrackInputs } from './TrackSizeInputs';
 import { PlacedItemsOverlay } from './PlacedItemsOverlay';
+import { useEffect } from 'react';
 
 export const VisualGrid = ({
   numCols,
@@ -28,14 +28,17 @@ export const VisualGrid = ({
     <div className="relative w-full overflow-visible">
       {/* The grid container with extra top & left margin to make room for inputs */}
       <div
-        className="relative bg-zinc-600/50 border-2 border-purple-950 rounded min-h-[450px] grid select-none"
+        className="relative bg-zinc-800/50 border-2 border-purple-950 min-h-[440px] grid select-none"
         style={{
           gridTemplateColumns: colSizes.join(' '),
           gridTemplateRows: rowSizes.join(' '),
           columnGap: `${colGap}px`,
           rowGap: `${rowGap}px`,
-          marginTop: '40px', // space for column inputs
-          marginLeft: '100px', // space for row inputs
+          marginTop: '40px',
+          marginLeft: '100px',
+          // Dot canvas background pattern
+          backgroundImage: `radial-gradient(circle at 1px 1px, rgba(255,255,255,0.1) 1px, transparent 1px)`,
+          backgroundSize: '5px 5px',
         }}
       >
         {/* Absolute positioned inputs – they are relative to this grid container */}
@@ -53,7 +56,7 @@ export const VisualGrid = ({
                 key={`cell-${r}-${c}`}
                 style={{ gridRowStart: r, gridColumnStart: c }}
                 className={`border border-zinc-500 cursor-crosshair ${
-                  isHighlighted ? 'bg-purple-500/20 border-purple-500/40' : ''
+                  isHighlighted ? 'bg-purple-500/20 border-purple-500/40' : 'bg-transparent'
                 }`}
                 onMouseDown={() => startDrawing(r, c)}
                 onMouseEnter={() => updateDrawing(r, c)}
