@@ -1,5 +1,6 @@
 import { GridSetupPanel } from './GridSetupPanel';
 import { PlacedItemsOverlay } from './PlacedItemsOverlay';
+import { TemplatePresets } from './TemplatePresets';
 import { ColumnTrackInputs } from './TrackSizeInputs';
 import { VisualGrid } from './VisualGrid';
 
@@ -10,6 +11,7 @@ export default function CSSGridGenerator() {
       <ColumnTrackInputs />
       <PlacedItemsOverlay />
       <VisualGrid />
+      <TemplatePresets />
     </div>
   );
 }
