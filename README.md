@@ -18,18 +18,16 @@
     <img src="https://img.shields.io/badge/Author-Bilal%20Malik-9B72FF.svg?style=flat" />
   </a>
   <a href="https://github.com/byllzz/cssframes/releases">
-    <img src="https://img.shields.io/badge/Latest%20Release-19%20April%202026-9B72FF.svg" />
+    <img src="https://img.shields.io/badge/Latest%20Release-14%20June%202026-9B72FF.svg" />
   </a>
 </p>
 
 
 ---
 
-[![Visit CSSFrames](https://img.shields.io/badge/View-gridzzly-9B72FF?style=flat)](https://gridzzly.vercel.app)
-
-<p align="center">
-  <img src="/public/preview.png" width="90%" alt="Gridzzly Preview"/>
-</p>
+<a href="https://gridzzly.vercel.app">
+  <img src="https://img.shields.io/badge/View-Gridzzly%20-9B72FF?style=flat" height="28" alt="Visit Gridzzly" />
+</a>
 
 <p align="center">
   <em>Create layouts visually, edit tracks, load presets, and export clean code instantly.</em>
