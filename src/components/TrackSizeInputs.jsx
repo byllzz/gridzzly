@@ -1,16 +1,18 @@
 // components/TrackSizeInputs.jsx
-import React from 'react';
-
-export const ColumnTrackInputs = ({ colSizes, setColSizes }) => (
+export const ColumnTrackInputs = ({ colSizes, setColSizes, colGap }) => (
   <div
-    className="absolute top-2 left-10 right-10 h-7 grid gap-[2px]"
-    style={{ gridTemplateColumns: colSizes.map(() => '1fr').join(' ') }}
+    className="absolute -top-10 left-0 right-0 h-8 grid"
+    style={{
+      gridTemplateColumns: colSizes.join(' '),
+      columnGap: `${colGap}px`,
+      placeItems: 'center',
+    }}
   >
     {colSizes.map((size, idx) => (
       <input
         key={`col-in-${idx}`}
         type="text"
-        className="w-full h-full bg-zinc-800 border border-zinc-700 text-center text-xs text-white rounded focus:outline-none focus:border-purple-500"
+        className="w-[60px] h-7 bg-zinc-800 border border-zinc-600 text-start pl-1.5 text-[16px] text-white focus:outline-none focus:border-purple-500"
         value={size}
         onChange={e => {
           const next = [...colSizes];
@@ -22,16 +24,20 @@ export const ColumnTrackInputs = ({ colSizes, setColSizes }) => (
   </div>
 );
 
-export const RowTrackInputs = ({ rowSizes, setRowSizes }) => (
+export const RowTrackInputs = ({ rowSizes, setRowSizes, rowGap }) => (
   <div
-    className="absolute top-10 bottom-10 left-2 w-7 grid gap-[2px]"
-    style={{ gridTemplateRows: rowSizes.map(() => '1fr').join(' ') }}
+    className="absolute -left-24 top-0 bottom-0 w-20 grid"
+    style={{
+      gridTemplateRows: rowSizes.join(' '),
+      rowGap: `${rowGap}px`,
+      placeItems: 'center',
+    }}
   >
     {rowSizes.map((size, idx) => (
       <input
         key={`row-in-${idx}`}
         type="text"
-        className="w-full h-full bg-zinc-800 border border-zinc-700 text-center text-xs text-white rounded focus:outline-none focus:border-purple-500"
+        className="w-[60px] h-7 bg-zinc-800 border border-zinc-600 text-start pl-1.5 text-[16px] text-white focus:outline-none focus:border-purple-500"
         value={size}
         onChange={e => {
           const next = [...rowSizes];
