@@ -6,7 +6,7 @@ import { TemplatePresets } from './TemplatePresets';
 import { useState } from 'react';
 import strokeLight from '../assets/strokeLight.png';
 import { CodeExportModal } from './CodeExportModal';
-
+import ProjectInfoPanel from './ProjectInfoPanel';
 export default function CSSGridGenerator() {
   const {
     numCols,
@@ -36,8 +36,7 @@ export default function CSSGridGenerator() {
   } = useGridGenerator();
 
   const [isCodeModalOpen, setIsCodeModalOpen] = useState(false);
-  const [activeTab, setActiveTab] = useState('css');
-
+  const [isInfoOpen, setIsInfoOpen] = useState(false);
   return (
     <div className="flex-1 w-full relative  text-zinc-200 py-2 selection:bg-purple-500/30">
       <div className="flex flex-col lg:flex-row gap-5 px-7 w-full justify-between items-start">
@@ -85,7 +84,10 @@ export default function CSSGridGenerator() {
           >
             Please May I have Some Code
           </button>
-          <button className="font-script font-bold text-[22px] relative">
+          <button
+            onClick={() => setIsInfoOpen(true)} // <-- open the info panel
+            className="font-script font-bold text-[22px] relative"
+          >
             What does this project do?
             <img src={strokeLight} className="h-2.5 absolute -bottom-1.5 -right-0" loading="lazy" />
           </button>
@@ -99,6 +101,7 @@ export default function CSSGridGenerator() {
         cssCode={cssCode}
         htmlCode={htmlCode}
       />
+      <ProjectInfoPanel isOpen={isInfoOpen} onClose={() => setIsInfoOpen(false)} />
     </div>
   );
 }
