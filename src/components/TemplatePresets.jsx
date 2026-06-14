@@ -1,5 +1,4 @@
-// components/TemplatePresets.jsx
-import React, { useRef, useState, useEffect } from 'react';
+import { useRef, useState } from 'react';
 import { standardPatterns, otherPatterns } from '../data/templates';
 
 // Merge all templates into one array

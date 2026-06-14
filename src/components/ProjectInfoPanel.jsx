@@ -56,7 +56,7 @@ const ProjectInfoPanel = ({ isOpen, onClose }) => {
 
         {/* Scrollable Content Viewport */}
         <div className="flex-1 overflow-y-auto px-8 py-10 space-y-12 text-sm custom-scrollbar bg-zinc-950">
-          {/* Large Editorial Style Typography Header */}
+          {/* Typography Header */}
           <header className="space-y-3 border-b border-zinc-900 pb-8">
             <h1 className="text-4xl sm:text-5xl font-black tracking-tight text-zinc-100 leading-none uppercase">
               Grid{' '}
@@ -135,7 +135,7 @@ const ProjectInfoPanel = ({ isOpen, onClose }) => {
             </div>
           </section>
 
-          {/* System Specs Architecture */}
+          {/* Project Specs */}
           <section className="grid grid-cols-1 md:grid-cols-3 gap-8 pt-4 border-t border-zinc-900">
             <div>
               <div className="text-[11px] font-mono uppercase tracking-widest text-zinc-500">
@@ -165,7 +165,7 @@ const ProjectInfoPanel = ({ isOpen, onClose }) => {
             </div>
           </section>
 
-          {/* Fine Print / Open Source Badge */}
+          {/*  Open Source Badge */}
           <div className="pt-6 border-t border-zinc-900 flex flex-col sm:flex-row items-center justify-between gap-4">
             <div className="text-xs text-zinc-600 font-mono">
               Designed by developers • Distributed under the MIT license architecture.

@@ -1,4 +1,3 @@
-// components/Logo.jsx
 export default function LogoIcon({ height = 10, width = 10 }) {
   return (
     <div className={`flex items-center justify-center h-${height} w-${width} shrink-0`}>

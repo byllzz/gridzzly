@@ -1,4 +1,3 @@
-// components/TrackSizeInputs.jsx
 export const ColumnTrackInputs = ({ colSizes, setColSizes, colGap }) => (
   <div
     className="absolute -top-10 left-0 right-0 h-8 grid"

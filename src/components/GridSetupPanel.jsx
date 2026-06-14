@@ -1,6 +1,3 @@
-// components/GridSetupPanel.jsx
-import React from 'react';
-
 export const GridSetupPanel = ({
   numCols,
   setNumCols,

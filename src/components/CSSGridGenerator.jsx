@@ -1,4 +1,3 @@
-// components/CSSGridGenerator.jsx
 import { useGridGenerator } from '../hooks/useGridGenerator';
 import { GridSetupPanel } from './GridSetupPanel';
 import { VisualGrid } from './VisualGrid';
@@ -85,7 +84,7 @@ export default function CSSGridGenerator() {
             Please May I have Some Code
           </button>
           <button
-            onClick={() => setIsInfoOpen(true)} // <-- open the info panel
+            onClick={() => setIsInfoOpen(true)} //  open the info panel
             className="font-script font-bold text-[22px] relative"
           >
             What does this project do?
@@ -94,13 +93,14 @@ export default function CSSGridGenerator() {
         </div>
       </div>
 
-      {/* Code Modal Section - Next Level UI */}
+      {/* Code Modal Section */}
       <CodeExportModal
         isOpen={isCodeModalOpen}
         onClose={() => setIsCodeModalOpen(false)}
         cssCode={cssCode}
         htmlCode={htmlCode}
       />
+      {/* Project Info Panel */}
       <ProjectInfoPanel isOpen={isInfoOpen} onClose={() => setIsInfoOpen(false)} />
     </div>
   );

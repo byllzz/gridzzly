@@ -25,9 +25,11 @@
 
 ---
 
-<a href="https://gridzzly.vercel.app">
-  <img src="https://img.shields.io/badge/View-Gridzzly%20-9B72FF?style=flat" height="28" alt="Visit Gridzzly" />
-</a>
+<p align="center">
+
+[![Visit Gridzzly](https://img.shields.io/badge/%20%20View%20%20-%20%20Gridzzly%20%20%20-9B72FF?style=flat)](https://gridzzly.vercel.app)
+
+</p>
 
 <p align="center">
   <img src="/public/preview.png" width="90%" alt="Gridzzly Preview"/>

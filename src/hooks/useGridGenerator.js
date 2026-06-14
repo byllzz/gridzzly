@@ -148,7 +148,7 @@ export const useGridGenerator = () => {
     setItems(items.filter(item => item.id !== id));
   };
 
-  // hooks/useGridGenerator.js (excerpt)
+  // reset everting
   const resetGrid = () => {
     setItems([]);
     setItemCounter(1);
