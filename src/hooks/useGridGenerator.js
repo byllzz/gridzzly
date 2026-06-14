@@ -169,6 +169,74 @@ export const useGridGenerator = () => {
     setItemCounter(tpl.items.length > 0 ? Math.max(...tpl.items.map(i => i.id)) + 1 : 1);
   };
 
+  const generateRandomPattern = () => {
+    // Random dimensions: 2 to 8 columns, 2 to 8 rows
+    const cols = Math.floor(Math.random() * 7) + 2; // 2-8
+    const rows = Math.floor(Math.random() * 7) + 2; // 2-8
+
+    // Random track sizes: mix of '1fr', '2fr', '3fr', 'auto', 'minmax(50px, 1fr)'
+    const trackOptions = ['1fr', '2fr', '3fr', 'auto', 'minmax(50px, 1fr)'];
+    const randomTrack = () => trackOptions[Math.floor(Math.random() * trackOptions.length)];
+
+    const colSizes = Array(cols)
+      .fill()
+      .map(() => randomTrack());
+    const rowSizes = Array(rows)
+      .fill()
+      .map(() => randomTrack());
+
+    // Generate random non-overlapping items
+    const maxItems = Math.floor(Math.random() * 6) + 1; // 1 to 6 items
+    const items = [];
+    const occupied = new Set(); // tracks cells "row,col" strings
+
+    const isOverlap = (rStart, cStart, rEnd, cEnd) => {
+      for (let r = rStart; r < rEnd; r++) {
+        for (let c = cStart; c < cEnd; c++) {
+          if (occupied.has(`${r},${c}`)) return true;
+        }
+      }
+      return false;
+    };
+
+    const markOccupied = (rStart, cStart, rEnd, cEnd) => {
+      for (let r = rStart; r < rEnd; r++) {
+        for (let c = cStart; c < cEnd; c++) {
+          occupied.add(`${r},${c}`);
+        }
+      }
+    };
+
+    for (let id = 1; id <= maxItems; id++) {
+      let attempts = 0;
+      let placed = false;
+      while (!placed && attempts < 50) {
+        // random size: width 1-3, height 1-3, but not exceeding grid bounds
+        const w = Math.min(Math.floor(Math.random() * 3) + 1, cols);
+        const h = Math.min(Math.floor(Math.random() * 3) + 1, rows);
+        const cStart = Math.floor(Math.random() * (cols - w + 1)) + 1;
+        const rStart = Math.floor(Math.random() * (rows - h + 1)) + 1;
+        const cEnd = cStart + w;
+        const rEnd = rStart + h;
+
+        if (!isOverlap(rStart, cStart, rEnd, cEnd)) {
+          items.push({ id, rStart, cStart, rEnd, cEnd });
+          markOccupied(rStart, cStart, rEnd, cEnd);
+          placed = true;
+        }
+        attempts++;
+      }
+    }
+
+    // Apply the generated pattern to state
+    setNumCols(cols);
+    setNumRows(rows);
+    setColSizes(colSizes);
+    setRowSizes(rowSizes);
+    setItems(items);
+    setItemCounter(items.length > 0 ? Math.max(...items.map(i => i.id)) + 1 : 1);
+  };
+
   return {
     // state
     numCols,
@@ -194,5 +262,6 @@ export const useGridGenerator = () => {
     deleteItem,
     resetGrid,
     applyTemplate,
+    generateRandomPattern,
   };
 };

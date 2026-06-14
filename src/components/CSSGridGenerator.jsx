@@ -5,6 +5,7 @@ import { VisualGrid } from './VisualGrid';
 import { TemplatePresets } from './TemplatePresets';
 import { CodePanel } from './CodePanel';
 import { useState } from 'react';
+import strokeLight from '../assets/strokeLight.png';
 
 export default function CSSGridGenerator() {
   const {
@@ -31,6 +32,7 @@ export default function CSSGridGenerator() {
     deleteItem,
     resetGrid,
     applyTemplate,
+    generateRandomPattern,
   } = useGridGenerator();
 
   const [isCodeModalOpen, setIsCodeModalOpen] = useState(false);
@@ -59,7 +61,7 @@ export default function CSSGridGenerator() {
         </div>
 
         {/* ... rest of your code panel components stay exactly the same ... */}
-        <div className="w-full lg:w-96 flex flex-col items-start gap-6 relative right-2">
+        <div className="w-full lg:w-96 flex flex-col items-start gap-3 relative right-2">
           <GridSetupPanel
             numCols={numCols}
             setNumCols={setNumCols}
@@ -70,15 +72,23 @@ export default function CSSGridGenerator() {
             rowGap={rowGap}
             setRowGap={setRowGap}
           />
-          <TemplatePresets onApplyTemplate={applyTemplate} onReset={resetGrid} />
-
+          <span className="h-[1px] w-full bg-zinc-700" />
+          <TemplatePresets
+            onApplyTemplate={applyTemplate}
+            onReset={resetGrid}
+            onRandom={generateRandomPattern}
+          />
+          <span className="h-[1px] w-full bg-zinc-700" />
           <button
             onClick={() => setIsCodeModalOpen(true)}
             className="border border-purple-600 rounded-full cursor-pointer hover:bg-purple-700 text-white font-medium py-2 px-4 transition-colors"
           >
             Please May I have Some Code
           </button>
-          <button>What does this project do?</button>
+          <button className="font-script font-bold text-[22px] relative">
+            What does this project do?
+            <img src={strokeLight} className="h-2.5 absolute -bottom-1.5 -right-0" loading="lazy" />
+          </button>
         </div>
       </div>
 

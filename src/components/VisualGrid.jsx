@@ -1,6 +1,5 @@
-// components/VisualGrid.jsx
 import { ColumnTrackInputs, RowTrackInputs } from './TrackSizeInputs';
-import { PlacedItemsOverlay } from './PlacedItemsOverlay'; // Make sure this import is back!
+import { PlacedItemsOverlay } from './PlacedItemsOverlay';
 import { useEffect } from 'react';
 
 export const VisualGrid = ({
@@ -24,6 +23,23 @@ export const VisualGrid = ({
     window.addEventListener('mouseup', finishDrawing);
     return () => window.removeEventListener('mouseup', finishDrawing);
   }, [finishDrawing]);
+
+  // Dynamically calculate the outer boundary limits of the active mouse selection drag
+  const getSelectionBox = () => {
+    if (!isDrawing || highlightedCells.length === 0) return null;
+
+    const rows = highlightedCells.map(cell => cell.row);
+    const cols = highlightedCells.map(cell => cell.col);
+
+    return {
+      rStart: Math.min(...rows),
+      rEnd: Math.max(...rows) + 1,
+      cStart: Math.min(...cols),
+      cEnd: Math.max(...cols) + 1,
+    };
+  };
+
+  const selectionBox = getSelectionBox();
 
   return (
     <div className="relative w-full overflow-visible">
@@ -54,10 +70,8 @@ export const VisualGrid = ({
               <div
                 key={`cell-${r}-${c}`}
                 style={{ gridRowStart: r, gridColumnStart: c }}
-                className={`border border-zinc-500 cursor-crosshair transition-colors duration-75 ${
-                  isHighlighted && isDrawing
-                    ? 'bg-purple-500/20 border-purple-500/40'
-                    : 'bg-transparent'
+                className={`border border-zinc-500/40 cursor-crosshair transition-all duration-75 ${
+                  isHighlighted && isDrawing ? 'bg-purple-500/10' : 'bg-transparent'
                 }`}
                 onMouseDown={() => startDrawing(r, c)}
                 onMouseEnter={() => updateDrawing(r, c)}
@@ -66,7 +80,22 @@ export const VisualGrid = ({
           });
         })}
 
-        {/* Un-commented this line right here! */}
+        {/* LIVE DRAG SELECTION OVERLAY COMPONENT */}
+        {selectionBox && (
+          <div
+            style={{
+              gridRow: `${selectionBox.rStart} / ${selectionBox.rEnd}`,
+              gridColumn: `${selectionBox.cStart} / ${selectionBox.cEnd}`,
+            }}
+            className="border-2 border-dashed border-purple-400 bg-purple-500/20 pointer-events-none flex items-center justify-center z-10 shadow-xl rounded-sm transition-all"
+          >
+            <div className="bg-purple-600/80 text-white font-mono text-xs font-bold px-2.5 py-1 rounded-md shadow border border-purple-400/40 select-none pointer-events-none scale-100">
+              {selectionBox.cEnd - selectionBox.cStart} cols ×{' '}
+              {selectionBox.rEnd - selectionBox.rStart} rows
+            </div>
+          </div>
+        )}
+
         <PlacedItemsOverlay items={items} onDelete={deleteItem} />
       </div>
     </div>

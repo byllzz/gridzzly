@@ -4,6 +4,8 @@
   --font-primary: "Outfit", serfi;
   --font-secondary: "Newsreader",
     serif;
+  --font-script: "Caveat",
+    cursive;
 }
 
 body {

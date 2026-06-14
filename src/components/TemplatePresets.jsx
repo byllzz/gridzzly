@@ -78,7 +78,7 @@ const MiniGridPreview = ({ cols, rows, colSizes, rowSizes, items }) => {
   );
 };
 
-export const TemplatePresets = ({ onApplyTemplate, onReset }) => {
+export const TemplatePresets = ({ onApplyTemplate, onReset, onRandom }) => {
   const sliderRef = useRef(null);
   const [isDown, setIsDown] = useState(false);
   const [startX, setStartX] = useState(0);
@@ -198,12 +198,20 @@ export const TemplatePresets = ({ onApplyTemplate, onReset }) => {
       </div>
 
       {/* Reset Action Trigger */}
-      <button
-        onClick={onReset}
-        className="border rounded-full border-purple-500/50 hover:bg-purple-500 hover:text-white text-purple-400 px-4 py-2 text-sm font-semibold  transition self-start"
-      >
-        Reset Grid
-      </button>
+      <div className="flex gap-3">
+        <button
+          onClick={onReset}
+          className="border rounded-full border-purple-500/50 hover:bg-purple-500 hover:text-white text-purple-400 px-4 py-2 text-sm font-semibold transition"
+        >
+          Reset Grid Pattern
+        </button>
+        <button
+          onClick={onRandom}
+          className="border rounded-full border-emerald-500/50 hover:bg-emerald-500 hover:text-white text-emerald-400 px-4 py-2 text-sm font-semibold transition"
+        >
+          Random Grid Pattern
+        </button>
+      </div>
     </div>
   );
 };

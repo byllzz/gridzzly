@@ -14,7 +14,7 @@ export default function Header() {
           Generator
         </h1>
       </div>
-      <p className="text-zinc-400 text-sm max-w-md">
+      <p className="text-white/80 text-[20px] leading-[1] font-medium max-w-md font-script">
         Design responsive CSS Grid layouts visually - draw items, customize tracks, and copy
         ready-to-use code.
       </p>
