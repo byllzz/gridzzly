@@ -30,6 +30,10 @@
 </a>
 
 <p align="center">
+  <img src="/public/preview.png" width="90%" alt="Gridzzly Preview"/>
+</p>
+
+<p align="center">
   <em>Create layouts visually, edit tracks, load presets, and export clean code instantly.</em>
 </p>
 
