@@ -3,9 +3,9 @@ import { useGridGenerator } from '../hooks/useGridGenerator';
 import { GridSetupPanel } from './GridSetupPanel';
 import { VisualGrid } from './VisualGrid';
 import { TemplatePresets } from './TemplatePresets';
-import { CodePanel } from './CodePanel';
 import { useState } from 'react';
 import strokeLight from '../assets/strokeLight.png';
+import { CodeExportModal } from './CodeExportModal';
 
 export default function CSSGridGenerator() {
   const {
@@ -36,6 +36,7 @@ export default function CSSGridGenerator() {
   } = useGridGenerator();
 
   const [isCodeModalOpen, setIsCodeModalOpen] = useState(false);
+  const [activeTab, setActiveTab] = useState('css');
 
   return (
     <div className="flex-1 w-full relative  text-zinc-200 py-2 selection:bg-purple-500/30">
@@ -91,26 +92,13 @@ export default function CSSGridGenerator() {
         </div>
       </div>
 
-      {/* Code Modal Section */}
-      {isCodeModalOpen && (
-        <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/70 backdrop-blur-sm">
-          <div className="bg-[#1a1a1e] border border-zinc-700 rounded-xl p-6 w-full max-w-3xl max-h-[90vh] overflow-y-auto shadow-2xl">
-            <div className="flex justify-between items-center mb-4">
-              <h2 className="text-xl font-bold text-purple-400">Generated Code</h2>
-              <button
-                onClick={() => setIsCodeModalOpen(false)}
-                className="text-zinc-400 hover:text-white text-2xl leading-none"
-              >
-                &times;
-              </button>
-            </div>
-            <div className="flex flex-col gap-4">
-              <CodePanel title="CSS code:" code={cssCode} language="css" />
-              <CodePanel title="HTML code:" code={htmlCode} language="html" />
-            </div>
-          </div>
-        </div>
-      )}
+      {/* Code Modal Section - Next Level UI */}
+      <CodeExportModal
+        isOpen={isCodeModalOpen}
+        onClose={() => setIsCodeModalOpen(false)}
+        cssCode={cssCode}
+        htmlCode={htmlCode}
+      />
     </div>
   );
 }
