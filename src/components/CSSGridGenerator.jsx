@@ -1,3 +1,4 @@
+import { CodePanel } from './CodePanel';
 import { GridSetupPanel } from './GridSetupPanel';
 import { PlacedItemsOverlay } from './PlacedItemsOverlay';
 import { TemplatePresets } from './TemplatePresets';
@@ -12,6 +13,7 @@ export default function CSSGridGenerator() {
       <PlacedItemsOverlay />
       <VisualGrid />
       <TemplatePresets />
+      <CodePanel />
     </div>
   );
 }
