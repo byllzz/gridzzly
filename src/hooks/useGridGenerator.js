@@ -156,8 +156,8 @@ export const useGridGenerator = () => {
     setNumRows(5);
     setColGap(0);
     setRowGap(0);
-    setColSizes(Array(4).fill('1fr'));
-    setRowSizes(Array(3).fill('1fr'));
+    setColSizes(Array(5).fill('1fr'));
+    setRowSizes(Array(5).fill('1fr'));
   };
 
   const applyTemplate = tpl => {
