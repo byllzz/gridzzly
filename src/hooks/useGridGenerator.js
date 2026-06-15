@@ -252,6 +252,7 @@ export const useGridGenerator = () => {
     rowSizes,
     setRowSizes,
     items,
+    setItems,
     highlightedCells,
     cssCode,
     htmlCode,
@@ -263,5 +264,6 @@ export const useGridGenerator = () => {
     resetGrid,
     applyTemplate,
     generateRandomPattern,
+    setItemCounter,
   };
 };

@@ -1,4 +1,5 @@
-import { useGridGenerator } from '../hooks/useGridGenerator';
+// src/components/CSSGridGenerator.jsx
+import { usePersistedGridGenerator } from '../hooks/usePersistedGridGenerator';
 import { GridSetupPanel } from './GridSetupPanel';
 import { VisualGrid } from './VisualGrid';
 import { TemplatePresets } from './TemplatePresets';
@@ -6,6 +7,7 @@ import { useState } from 'react';
 import strokeLight from '../assets/strokeLight.png';
 import { CodeExportModal } from './CodeExportModal';
 import ProjectInfoPanel from './ProjectInfoPanel';
+
 export default function CSSGridGenerator() {
   const {
     numCols,
@@ -32,12 +34,20 @@ export default function CSSGridGenerator() {
     resetGrid,
     applyTemplate,
     generateRandomPattern,
-  } = useGridGenerator();
+    clearAll,
+  } = usePersistedGridGenerator();
 
   const [isCodeModalOpen, setIsCodeModalOpen] = useState(false);
   const [isInfoOpen, setIsInfoOpen] = useState(false);
+
+  const handleClearAll = () => {
+    if (window.confirm('Clear all grid data? This cannot be undone.')) {
+      clearAll();
+    }
+  };
+
   return (
-    <div className="flex-1 w-full relative  text-zinc-200 py-2 selection:bg-purple-500/30">
+    <div className="flex-1 w-full relative text-zinc-200 py-2 selection:bg-purple-500/30">
       <div className="flex flex-col lg:flex-row gap-5 px-7 w-full justify-between items-start">
         <div className="flex flex-col flex-1 w-full gap-4 relative right-5">
           <VisualGrid
@@ -77,14 +87,23 @@ export default function CSSGridGenerator() {
             onRandom={generateRandomPattern}
           />
           <span className="h-[1px] w-full bg-zinc-700" />
+
+          {/* Clear All Data Button with confirmation */}
+          <button
+            onClick={handleClearAll} // uses confirmation dialog
+            className="border border-red-500/50 rounded-full cursor-pointer hover:bg-red-600 hover:text-white text-red-400 font-medium py-2 px-4 transition-colors w-full"
+          >
+            Clear All Data
+          </button>
+
           <button
             onClick={() => setIsCodeModalOpen(true)}
-            className="border border-purple-600 rounded-full cursor-pointer hover:bg-purple-700 text-white font-medium py-2 px-4 transition-colors"
+            className="border border-purple-600 rounded-full cursor-pointer hover:bg-purple-700 text-white font-medium py-2 px-4 transition-colors w-full"
           >
             Please May I have Some Code
           </button>
           <button
-            onClick={() => setIsInfoOpen(true)} //  open the info panel
+            onClick={() => setIsInfoOpen(true)}
             className="font-script font-bold text-[22px] relative"
           >
             What does this project do?
@@ -93,14 +112,12 @@ export default function CSSGridGenerator() {
         </div>
       </div>
 
-      {/* Code Modal Section */}
       <CodeExportModal
         isOpen={isCodeModalOpen}
         onClose={() => setIsCodeModalOpen(false)}
         cssCode={cssCode}
         htmlCode={htmlCode}
       />
-      {/* Project Info Panel */}
       <ProjectInfoPanel isOpen={isInfoOpen} onClose={() => setIsInfoOpen(false)} />
     </div>
   );
