@@ -10,29 +10,48 @@
 
 <p align="center">
   <a href="./LICENSE">
-    <img src="https://img.shields.io/badge/License-MIT-9B72FF.svg?style=flat" />
+    <img src="https://img.shields.io/badge/License-MIT-9B72FF.svg?style=flat" alt="MIT License" />
   </a>
-  <img src="https://img.shields.io/badge/Repository%20Status-Active-9B72FF.svg?style=flat" />
-  <img src="https://img.shields.io/badge/Website%20Status-Online-9B72FF.svg?style=flat" />
+  <img src="https://img.shields.io/badge/Repository-Active-9B72FF.svg?style=flat" alt="Repository Status" />
+  <img src="https://img.shields.io/badge/Website-Online-9B72FF.svg?style=flat" alt="Website Status" />
+  <img src="https://img.shields.io/badge/React-19-9B72FF.svg?style=flat&logo=react&logoColor=white" alt="React 19" />
+  <img src="https://img.shields.io/badge/Tailwind-v4-9B72FF.svg?style=flat&logo=tailwindcss&logoColor=white" alt="Tailwind CSS" />
+  <img src="https://img.shields.io/badge/Vite-7-9B72FF.svg?style=flat&logo=vite&logoColor=white" alt="Vite" />
+  <img src="https://img.shields.io/badge/CSS-Grid-9B72FF.svg?style=flat&logo=css3&logoColor=white" alt="CSS Grid" />
+  <img src="https://img.shields.io/badge/Made%20With-React-9B72FF.svg?style=flat&logo=react&logoColor=white" alt="Made with React" />
+  <img src="https://img.shields.io/badge/Open%20Source-❤-9B72FF.svg?style=flat" alt="Open Source" />
   <a href="https://github.com/byllzz">
-    <img src="https://img.shields.io/badge/Author-Bilal%20Malik-9B72FF.svg?style=flat" />
+    <img src="https://img.shields.io/badge/Author-Bilal%20Malik-9B72FF.svg?style=flat" alt="Author" />
   </a>
-  <a href="https://github.com/byllzz/cssframes/releases">
-    <img src="https://img.shields.io/badge/Latest%20Release-14%20June%202026-9B72FF.svg" />
-  </a>
+  <img src="https://img.shields.io/badge/PRs-Welcome-9B72FF.svg?style=flat" alt="PRs Welcome" />
+  <img src="https://img.shields.io/badge/Maintained-Yes-9B72FF.svg?style=flat" alt="Maintained" />
 </p>
-
+<p align="center">
+  <a href="https://github.com/byllzz/gridzzly/stargazers">
+  <img src="https://img.shields.io/github/stars/byllzz/gridzzly?style=flat&color=9B72FF" alt="Stars" />
+</a>
+<a href="https://github.com/byllzz/gridzzly/forks">
+  <img src="https://img.shields.io/github/forks/byllzz/gridzzly?style=flat&color=9B72FF" alt="Forks" />
+</a>
+<a href="https://github.com/byllzz/gridzzly/issues">
+  <img src="https://img.shields.io/github/issues/byllzz/gridzzly?style=flat&color=9B72FF" alt="Issues" />
+</a>
+<a href="https://github.com/byllzz/gridzzly/blob/main/LICENSE">
+  <img src="https://img.shields.io/github/license/byllzz/gridzzly?style=flat&color=9B72FF" alt="License" />
+</a>
+</p>
 
 ---
 
 <p align="center">
-
-[![Visit Gridzzly](https://img.shields.io/badge/%20%20View%20%20-%20%20Gridzzly%20%20%20-9B72FF?style=flat)](https://gridzzly.vercel.app)
-
+  <a href="https://gridzzly.vercel.app">
+    <img src="https://img.shields.io/badge/%20View%20-Gridzzly-9B72FF?style=for-the-badge" alt="Try Gridzzly" />
+  </a>
 </p>
 
+
 <p align="center">
-  <img src="/public/preview.png" width="90%" alt="Gridzzly Preview"/>
+  <img src="./public/preview.gif" width="90%" alt="Gridzzly Demo" />
 </p>
 
 <p align="center">
