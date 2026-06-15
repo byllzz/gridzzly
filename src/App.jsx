@@ -66,7 +66,7 @@ export default function App() {
       initial="hidden"
       animate="visible"
       variants={containerVariants}
-      className="flex flex-col gap-11 w-full min-h-screen relative scrollbar-none overflow-hidden"
+      className="flex flex-col gap-11 w-full min-h-screen relative scrollbar-none overflow-hidden pb-5 sm:pb-0"
     >
       <motion.div variants={itemVariants} className="absolute top-0 right-0 z-10">
         <GithubIcon />
@@ -76,10 +76,12 @@ export default function App() {
         href={projectUrl}
         rel="noopener noreferrer"
         variants={itemVariants}
-        className="absolute top-4 gap-1.5 left-5 z-10 flex items-center cursor-pointer hover:opacity-80 transition-opacity"
+        className="absolute top-3 sm:top-4 gap-1 left-5 z-10 flex items-center cursor-pointer hover:opacity-80 transition-opacity"
       >
         <LogoIcon height={7} width={7} />
-        <span className="text-white text-[22px] relative bottom-[1px]">Gridzzly</span>
+        <span className="text-white text-[24px] relative font-black bottom-[1px] font-script">
+          Gridzzly
+        </span>
       </motion.a>
 
       <motion.div variants={itemVariants}>
