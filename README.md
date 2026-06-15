@@ -26,19 +26,20 @@
   <img src="https://img.shields.io/badge/PRs-Welcome-9B72FF.svg?style=flat" alt="PRs Welcome" />
   <img src="https://img.shields.io/badge/Maintained-Yes-9B72FF.svg?style=flat" alt="Maintained" />
 </p>
+
 <p align="center">
   <a href="https://github.com/byllzz/gridzzly/stargazers">
-  <img src="https://img.shields.io/github/stars/byllzz/gridzzly?style=flat&color=9B72FF" alt="Stars" />
-</a>
-<a href="https://github.com/byllzz/gridzzly/forks">
-  <img src="https://img.shields.io/github/forks/byllzz/gridzzly?style=flat&color=9B72FF" alt="Forks" />
-</a>
-<a href="https://github.com/byllzz/gridzzly/issues">
-  <img src="https://img.shields.io/github/issues/byllzz/gridzzly?style=flat&color=9B72FF" alt="Issues" />
-</a>
-<a href="https://github.com/byllzz/gridzzly/blob/main/LICENSE">
-  <img src="https://img.shields.io/github/license/byllzz/gridzzly?style=flat&color=9B72FF" alt="License" />
-</a>
+    <img src="https://img.shields.io/github/stars/byllzz/gridzzly?style=flat&color=9B72FF" alt="GitHub Stars">
+  </a>
+  <a href="https://github.com/byllzz/gridzzly/forks">
+    <img src="https://img.shields.io/github/forks/byllzz/gridzzly?style=flat&color=9B72FF" alt="GitHub Forks">
+  </a>
+  <a href="https://github.com/byllzz/gridzzly/issues">
+    <img src="https://img.shields.io/github/issues/byllzz/gridzzly?style=flat&color=9B72FF" alt="GitHub Issues">
+  </a>
+  <a href="https://github.com/byllzz/gridzzly/blob/main/LICENSE">
+    <img src="https://img.shields.io/github/license/byllzz/gridzzly?style=flat&color=9B72FF" alt="MIT License">
+  </a>
 </p>
 
 ---
