@@ -273,7 +273,7 @@ If **Gridzzly** saves you time or helps you learn, consider supporting the proje
 *  **Share** it with your friends or on social media
 *  **Leave feedback** or suggest ideas in GitHub Discussions
 *  **Buy me a coffee** if you'd like to support future development
-
+<!-- buy me a coffe -->
 <p align="left">
   <a href="https://buymeacoffee.com/byllzz">
     <img src="https://img.shields.io/badge/Buy%20Me%20A%20Coffee-FFDD00?style=for-the-badge&logo=buy-me-a-coffee&logoColor=black" alt="Buy Me A Coffee" />
