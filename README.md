@@ -7,7 +7,7 @@
 <p align="center">
   A visual CSS Grid playground built with React. Create layouts by simply clicking and dragging. No memorizing grid lines. No manual calculations. Just build your layout and copy the generated code.
 </p>
-
+<!-- badges-->
 <p align="center">
   <a href="./LICENSE">
     <img src="https://img.shields.io/badge/License-MIT-9B72FF.svg?style=flat" alt="MIT License" />
