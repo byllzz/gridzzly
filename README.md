@@ -50,7 +50,7 @@
   </a>
 </p>
 
-
+<!-- preview -->
 <p align="center">
   <img src="./public/preview.gif" width="90%" alt="Gridzzly Demo" />
 </p>
