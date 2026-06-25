@@ -278,7 +278,7 @@ If **Gridzzly** saves you time or helps you learn, consider supporting the proje
   <a href="https://buymeacoffee.com/byllzz">
     <img src="https://img.shields.io/badge/Buy%20Me%20A%20Coffee-FFDD00?style=for-the-badge&logo=buy-me-a-coffee&logoColor=black" alt="Buy Me A Coffee" />
   </a>
-
+<!-- ko-fi badge -->
   <a href="https://github.com/sponsors/byllzz">
     <img src="https://img.shields.io/badge/Sponsor%20on%20GitHub-181717?style=for-the-badge&logo=github&logoColor=white" alt="Sponsor on GitHub" />
   </a>
