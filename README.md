@@ -1,6 +1,6 @@
+<!-- project logo -->
 <p align="center">
   <img src="/public/favicon.svg" width="120" alt="Gridzzly Logo" />
-
 </p>
 
 
