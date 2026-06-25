@@ -270,9 +270,9 @@ Yes. Code is not the only currency here. You can help by:
 If **Gridzzly** saves you time or helps you learn, consider supporting the project:
 
 * ⭐ **Star** this repository on GitHub
-* 🐦 **Share** it with your friends or on social media
-* 💬 **Leave feedback** or suggest ideas in GitHub Discussions
-* ☕ **Buy me a coffee** if you'd like to support future development
+*  **Share** it with your friends or on social media
+*  **Leave feedback** or suggest ideas in GitHub Discussions
+*  **Buy me a coffee** if you'd like to support future development
 
 <p align="left">
   <a href="https://buymeacoffee.com/byllzz">
