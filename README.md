@@ -43,7 +43,7 @@
 </p>
 
 ---
-
+<!-- live demo badge -->
 <p align="center">
   <a href="https://gridzzly.vercel.app">
     <img src="https://img.shields.io/badge/%20View%20-Gridzzly-9B72FF?style=for-the-badge" alt="Try Gridzzly" />
